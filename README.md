@@ -1,2 +1,2 @@
 # RPD
-A multi-player role-playing disasterpiece written in C++14
+A multi-player role-playing disasterpiece written in C++17
