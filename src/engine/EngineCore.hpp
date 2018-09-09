@@ -3,6 +3,7 @@
 
 #include "RenderManager.hpp"
 #include "InputManager.hpp"
+#include "Scene.hpp"
 
 namespace engine {
 

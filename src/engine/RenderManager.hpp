@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <string>
 
 namespace engine {
 
@@ -17,7 +18,7 @@ private:
    RenderManager& operator=(const RenderManager&) = delete;
 public:
    static RenderManager& GetInstance();
-   void Render(const SDL_Texture& texture, const SDL_Rect& src, const SDL_Rect& dest);
+   void Render(SDL_Texture* texture, SDL_Rect* src, SDL_Rect* dest);
    inline SDL_Renderer* GetRenderer() { return renderer; };
 };
 

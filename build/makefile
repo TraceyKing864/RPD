@@ -5,7 +5,7 @@ OBJS = ../src/*.cpp ../src/engine/*.cpp #../src/rpd/*.cpp
 CC = g++
 
 #COMPILER_FLAGS specifies the additional compilation options we're using
-COMPILER_FLAGS = -std=c++17
+COMPILER_FLAGS = -g -std=c++17
 
 #LINKER_FLAGS specifies the libraries we're linking against
 LINKER_FLAGS = -lSDL2 -lSDL2_image

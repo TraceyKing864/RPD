@@ -1,6 +1,6 @@
 #include "RenderManager.hpp"
 
-namespace engine{
+namespace engine {
 
 RenderManager::RenderManager() {
    if(SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -21,21 +21,24 @@ RenderManager::RenderManager() {
       throw(std::string("Couldn't make a window: ")+SDL_GetError());
    }
 
-   SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
    if(renderer == NULL) 
       throw std::string("Error in RenderManager(): NULL renderer.");
 }
+
 RenderManager::~RenderManager() {
    SDL_DestroyRenderer(renderer);
    SDL_DestroyWindow(window);
    SDL_Quit();
 }
+
 RenderManager& RenderManager::GetInstance() {
    static RenderManager singleton;
    return singleton;
 }
-void RenderManager::Render(const SDL_Rexture& texture, const SDL_Rect& src, const SDL_Rect& dest) {
+
+void RenderManager::Render(SDL_Texture* texture, SDL_Rect* src, SDL_Rect* dest) {
    SDL_RenderCopy(renderer, texture, src, dest);
 }
 

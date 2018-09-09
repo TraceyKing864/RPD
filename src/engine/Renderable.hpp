@@ -6,12 +6,14 @@
 #include "RenderManager.hpp"
 
 namespace engine {
+
 enum RENDERABLE_DEFAULT {
    WIDTH = 16,
    HEIGHT = 16,
    SCALE = 1,
    UPDATE_INTERVAL = 200
 };
+
 class Renderable {
 private:
    int pos_x;
