@@ -1,22 +1,24 @@
 #include "RenderManager.hpp"
 
-RenderManager::RenderManager(){
-   if(SDL_Init( SDL_INIT_VIDEO) < 0 ) {
-      throw (std::string("Could not init SDL: ") + SDL_GetError());
+namespace engine{
+
+RenderManager::RenderManager() {
+   if(SDL_Init(SDL_INIT_VIDEO) < 0) {
+      throw(std::string("Could not init SDL: ") + SDL_GetError());
    }
    std::string title = "RPD Version 0.00000001";
    int width = 640;
    int height = 480;
    bool fullscreen = false;
    int flags = SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN;
-   if(fullscreen)
+   if (fullscreen)
       flags = flags | SDL_WINDOW_MAXIMIZED;
 
-   window = SDL_CreateWindow( title.c_str(), SDL_WINDOWPOS_CENTERED, 
+   window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, 
              SDL_WINDOWPOS_CENTERED, width, height, flags);
 
-   if( window == NULL ) {
-      throw (std::string("Couldn't make a window: ")+SDL_GetError());
+   if(window == NULL) {
+      throw(std::string("Couldn't make a window: ")+SDL_GetError());
    }
 
    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
@@ -24,15 +26,17 @@ RenderManager::RenderManager(){
    if(renderer == NULL) 
       throw std::string("Error in RenderManager(): NULL renderer.");
 }
-RenderManager::~RenderManager(){
+RenderManager::~RenderManager() {
    SDL_DestroyRenderer(renderer);
    SDL_DestroyWindow(window);
    SDL_Quit();
 }
-RenderManager& RenderManager::GetInstance(){
+RenderManager& RenderManager::GetInstance() {
    static RenderManager singleton;
    return singleton;
 }
-void RenderManager::Render(const SDL_texture& texture, const SDL_rect& src, const SDL_rect& dest){
+void RenderManager::Render(const SDL_Rexture& texture, const SDL_Rect& src, const SDL_Rect& dest) {
    SDL_RenderCopy(renderer, texture, src, dest);
 }
+
+} // namespace engine
