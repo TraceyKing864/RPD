@@ -2,6 +2,7 @@
 #define ENGINE_RENDERMANAGER_HPP
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 namespace engine {
 
@@ -16,7 +17,8 @@ private:
    RenderManager& operator=(const RenderManager&) = delete;
 public:
    static RenderManager& GetInstance();
-   void Render(const SDL_texture& texture, const SDL_rect& src, const SDL_rect& dest);
+   void Render(const SDL_Texture& texture, const SDL_Rect& src, const SDL_Rect& dest);
+   inline SDL_Renderer* GetRenderer() { return renderer; };
 };
 
 } // namespace engine
