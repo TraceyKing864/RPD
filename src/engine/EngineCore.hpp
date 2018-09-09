@@ -2,6 +2,8 @@
 #define ENGINE_ENGINECORE_HPP
 
 #include <SDL2/SDL.h>
+#include "RenderManager.hpp"
+#include "engine/InputManager.hpp"
 
 namespace engine {
 

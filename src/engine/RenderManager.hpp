@@ -9,10 +9,10 @@ class RenderManager {
 private:
    RenderManager();
    ~RenderManager();
-   RenderManager(const &RenderManager rm) = delete;
-   RenderManager& operator=(const &RenderManager rm) = delete;
+   RenderManager(const RenderManager& rm) = delete;
+   RenderManager& operator=(const RenderManager& rm) = delete;
 public:
-   RenderManager& getInstance();
+   RenderManager& GetInstance();
 };
 
 } // namespace engine
