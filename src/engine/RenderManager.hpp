@@ -7,12 +7,16 @@ namespace engine {
 
 class RenderManager {
 private:
+   SDL_Window* window;
+   SDL_Renderer* renderer;
+
    RenderManager();
    ~RenderManager();
-   RenderManager(const RenderManager& rm) = delete;
-   RenderManager& operator=(const RenderManager& rm) = delete;
+   RenderManager(const RenderManager&) = delete;
+   RenderManager& operator=(const RenderManager&) = delete;
 public:
-   RenderManager& GetInstance();
+   static RenderManager& GetInstance();
+   void Render(const SDL_texture& texture, const SDL_rect& src, const SDL_rect& dest);
 };
 
 } // namespace engine
