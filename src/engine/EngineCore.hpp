@@ -1,14 +1,15 @@
 #ifndef ENGINE_ENGINECORE_HPP
 #define ENGINE_ENGINECORE_HPP
 
-#include <SDL2/SDL.h>
 #include "RenderManager.hpp"
-#include "engine/InputManager.hpp"
+#include "InputManager.hpp"
 
 namespace engine {
 
 class EngineCore {
 public:
+   ~EngineCore();
+
    static EngineCore& GetInstance();
    static void Destroy();
 
@@ -16,7 +17,6 @@ public:
 
 private:
    EngineCore();
-   ~EngineCore();
 };
 
 } // namespace engine
