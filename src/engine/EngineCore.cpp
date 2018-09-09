@@ -16,19 +16,23 @@ EngineCore& EngineCore::GetInstance() {
    return singleton;
 }
 
-void EngineCore::Destroy() {
+/* void EngineCore::Destroy() {
 
-}
+} */
 
 void EngineCore::Run() {
    bool running = true;
 
    SDL_Event e;
-   Scene look_at_this;
-   unsigned int i = 0;
+
+   Clock& game_clock = Clock::GetInstance();
+   RenderManager& render_manager = RenderManager::GetInstance();
+   // InputManager& input_manager = InputManager::GetInstance();
+   std::unique_ptr<Scene> scene = std::make_unique<Scene>();
+
+   game_clock.Start();
 
    while(running) {
-      SDL_RenderClear(RenderManager::GetInstance().GetRenderer());
       // handle input
       // TEMPORARY MANUAL HANDLING OF INPUT
       while(SDL_PollEvent(&e) != 0) {
@@ -36,20 +40,23 @@ void EngineCore::Run() {
             running = false;
          }
          else {
-            look_at_this.HandleEvent(e);
+            scene->HandleEvent(e);
          }
       }
 
       // update scene
-      look_at_this.Update(i);
+      scene->Update(game_clock.GetElapsedTicks());
+
+      // clear last frame from renderer
+      render_manager.ClearRenderer();
 
       // render scene
-      look_at_this.RenderAll();
+      scene->RenderAll();
 
       // push scene to screen
-      SDL_RenderPresent(RenderManager::GetInstance().GetRenderer());
+      render_manager.SceneToScreen();
 
-      i += 100;
+      // TEMPORARY delay to ensure simple functionality is working
       SDL_Delay(1000);
    }
 }

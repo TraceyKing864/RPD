@@ -1,23 +1,26 @@
 #ifndef ENGINE_ENGINECORE_HPP
 #define ENGINE_ENGINECORE_HPP
 
+#include "Clock.hpp"
 #include "RenderManager.hpp"
 #include "InputManager.hpp"
 #include "Scene.hpp"
+#include <memory>
 
 namespace engine {
 
 class EngineCore {
 public:
-   ~EngineCore();
-
    static EngineCore& GetInstance();
-   static void Destroy();
+   // static void Destroy();
 
    void Run();
 
 private:
    EngineCore();
+   ~EngineCore();
+   EngineCore(const EngineCore&) = delete;
+   EngineCore& operator=(const EngineCore&) = delete;
 };
 
 } // namespace engine

@@ -14,22 +14,22 @@ RenderManager::RenderManager() {
    if (fullscreen)
       flags = flags | SDL_WINDOW_MAXIMIZED;
 
-   window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, 
+   window_ = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, 
              SDL_WINDOWPOS_CENTERED, width, height, flags);
 
-   if(window == NULL) {
+   if(window_ == NULL) {
       throw(std::string("Couldn't make a window: ")+SDL_GetError());
    }
 
-   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+   renderer_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED);
 
-   if(renderer == NULL) 
+   if(renderer_ == NULL) 
       throw std::string("Error in RenderManager(): NULL renderer.");
 }
 
 RenderManager::~RenderManager() {
-   SDL_DestroyRenderer(renderer);
-   SDL_DestroyWindow(window);
+   SDL_DestroyRenderer(renderer_);
+   SDL_DestroyWindow(window_);
    SDL_Quit();
 }
 
@@ -38,8 +38,16 @@ RenderManager& RenderManager::GetInstance() {
    return singleton;
 }
 
+void RenderManager::ClearRenderer() {
+   SDL_RenderClear(renderer_);
+}
+
 void RenderManager::Render(SDL_Texture* texture, SDL_Rect* src, SDL_Rect* dest) {
-   SDL_RenderCopy(renderer, texture, src, dest);
+   SDL_RenderCopy(renderer_, texture, src, dest);
+}
+
+void RenderManager::SceneToScreen() {
+   SDL_RenderPresent(renderer_);
 }
 
 } // namespace engine

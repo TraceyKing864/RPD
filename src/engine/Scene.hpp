@@ -13,7 +13,7 @@ public:
    Scene();
    ~Scene();
 
-   void HandleEvent(const SDL_Event& e);
+   void HandleEvent(const SDL_Event& e); // TODO: remove in favor of inputmanager stuff
    void Update(unsigned int i);
    void RenderAll();
 
