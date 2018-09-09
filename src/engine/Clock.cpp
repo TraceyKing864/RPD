@@ -4,8 +4,8 @@ namespace engine {
 
 Clock& Clock::GetInstance()
 {
-    static Clock clock;
-    return clock;
+    static Clock singleton;
+    return singleton;
 }
 
 Clock::Clock()

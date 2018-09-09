@@ -2,7 +2,7 @@
 #define ENGINE_RENDERABLE_HPP
 
 #include <SDL2/SDL.h>
-
+#include <string>
 #include "RenderManager.hpp"
 
 namespace engine {
@@ -15,31 +15,32 @@ enum RENDERABLE_DEFAULT {
 };
 
 class Renderable {
-private:
-   int pos_x;
-   int pos_y;
-   int width;
-   int height;
-   int frame;
-   int frame_count;
-   int animation;
-   int animation_count;
-   double scale;
-   int update_interval;
-   SDL_Texture* texture;
-
-   void AdvanceFrame();
 public:
-   Renderable(SDL_Texture* in_texture, int in_x, int in_y);
+   Renderable(std::string texture_id, int pos_x, int pos_y);
    ~Renderable();
    Renderable(const Renderable& other);
    Renderable& operator=(const Renderable& rhs);
 
    void Update(unsigned int ticks);
    void Render();
-   void SetAnimation(int in_animation);
-   void SetScale(double in_scale);
-   void UpdatePosition(int in_x, int in_y);
+   void SetAnimation(int animation);
+   void SetScale(double scale);
+   void UpdatePosition(int pos_x, int pos_y);
+
+private:
+   int pos_x_;
+   int pos_y_;
+   int width_;
+   int height_;
+   int frame_;
+   int frame_count_;
+   int animation_;
+   int animation_count_;
+   double scale_;
+   int update_interval_;
+   std::string texture_id_;
+
+   void AdvanceFrame();
 };
 
 } // namespace engine

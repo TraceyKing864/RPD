@@ -6,6 +6,8 @@
 #include "InputManager.hpp"
 #include "Scene.hpp"
 #include <memory>
+#include <string>
+#include <vector>
 
 namespace engine {
 

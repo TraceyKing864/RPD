@@ -31,6 +31,7 @@ void EngineCore::Run() {
    std::unique_ptr<Scene> scene = std::make_unique<Scene>();
 
    game_clock.Start();
+   render_manager.LoadTextures(std::vector<std::string>({"../assets/archer.png"}));
 
    while(running) {
       // handle input
@@ -40,12 +41,12 @@ void EngineCore::Run() {
             running = false;
          }
          else {
-            scene->HandleEvent(e);
+            //scene->HandleEvent(e);
          }
       }
 
       // update scene
-      scene->Update(game_clock.GetElapsedTicks());
+      scene->UpdateAll(game_clock.GetElapsedTicks());
 
       // clear last frame from renderer
       render_manager.ClearRenderer();
@@ -57,7 +58,7 @@ void EngineCore::Run() {
       render_manager.SceneToScreen();
 
       // TEMPORARY delay to ensure simple functionality is working
-      SDL_Delay(1000);
+      SDL_Delay(250);
    }
 }
 
