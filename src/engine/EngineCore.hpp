@@ -6,7 +6,15 @@
 namespace engine {
 
 class EngineCore {
+public:
+   static EngineCore& GetInstance();
+   static void Destroy();
 
+   void Run();
+
+private:
+   EngineCore();
+   ~EngineCore();
 };
 
 } // namespace engine
