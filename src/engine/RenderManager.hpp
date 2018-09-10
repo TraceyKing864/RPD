@@ -29,6 +29,8 @@ private:
    ~RenderManager();
    RenderManager(const RenderManager&) = delete;
    RenderManager& operator=(const RenderManager&) = delete;
+
+   void Scale();
 };
 
 } // namespace engine

@@ -4,7 +4,7 @@ namespace engine {
 
 Scene::Scene() {
    SDL_Texture* temp_texture;
-   SDL_Surface* loaded_surface = IMG_Load("../assets/archer.png");
+   SDL_Surface* loaded_surface = IMG_Load("../assets/warrior.png");
 	if( loaded_surface == NULL ) {
       printf( "Unable to load image! SDL_image Error: %s\n", IMG_GetError() );
    } else {

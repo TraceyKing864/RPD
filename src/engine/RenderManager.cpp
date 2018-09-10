@@ -47,7 +47,14 @@ void RenderManager::Render(SDL_Texture* texture, SDL_Rect* src, SDL_Rect* dest) 
 }
 
 void RenderManager::SceneToScreen() {
+   Scale();
    SDL_RenderPresent(renderer_);
+}
+
+void RenderManager::Scale() {
+   const int viewport_width = 320;
+   const int viewport_height = 240;
+   SDL_RenderSetLogicalSize(renderer_, viewport_width, viewport_height);
 }
 
 } // namespace engine
