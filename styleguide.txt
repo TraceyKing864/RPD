@@ -1,3 +1,0 @@
-Use spaces for tabs
-3 spaces indentation
-Default to Google Style Guide
