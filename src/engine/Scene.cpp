@@ -12,9 +12,14 @@ Scene::~Scene() {
 
 }
 
-/* void Scene::HandleEvent(const SDL_Event& e) {
+void Scene::HandleInput(InputData input_data) {
    // lol events
-} */
+   if(input_data.input_type == KEY_LEFT) {
+      game_objects_[0]->UpdatePosition(0,0);
+   } else if(input_data.input_type == KEY_RIGHT) {
+      game_objects_[0]->UpdatePosition(100,0);
+   }
+}
 
 void Scene::UpdateAll(unsigned int ticks) {
    for(auto &object : game_objects_) {

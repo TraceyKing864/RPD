@@ -2,8 +2,9 @@
 #define ENGINE_ENGINECORE_HPP
 
 #include "Clock.hpp"
-#include "RenderManager.hpp"
+#include "InputData.hpp"
 #include "InputManager.hpp"
+#include "RenderManager.hpp"
 #include "Scene.hpp"
 #include <memory>
 #include <string>

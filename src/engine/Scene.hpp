@@ -3,6 +3,7 @@
 
 /*#include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>*/
+#include "InputData.hpp"
 #include "RenderManager.hpp"
 #include "Renderable.hpp"
 
@@ -13,7 +14,7 @@ public:
    Scene();
    ~Scene();
 
-   //void HandleEvent(const SDL_Event& e); // TODO: remove in favor of inputmanager stuff
+   void HandleInput(InputData input_data);
    void UpdateAll(unsigned int ticks);
    void RenderAll();
 
