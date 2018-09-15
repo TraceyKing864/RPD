@@ -26,16 +26,16 @@ public:
    //inline SDL_Renderer* GetRenderer() { return renderer_.get(); };
 
 private:
-   SDL_Window* window_;
-   SDL_Renderer* renderer_;
-   std::map<std::string, SDL_Texture*> loaded_textures_;
-
    RenderManager();
    ~RenderManager();
    RenderManager(const RenderManager&) = delete;
    RenderManager& operator=(const RenderManager&) = delete;
 
    void Scale();
+
+   SDL_Window* window_;
+   SDL_Renderer* renderer_;
+   std::map<std::string, SDL_Texture*> loaded_textures_;
 };
 
 } // namespace engine

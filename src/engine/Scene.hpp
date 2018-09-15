@@ -3,6 +3,7 @@
 
 /*#include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>*/
+#include "../rpd/Actor.hpp"
 #include "InputData.hpp"
 #include "RenderManager.hpp"
 #include "Renderable.hpp"
@@ -19,7 +20,7 @@ public:
    void RenderAll();
 
 private:
-   std::vector<std::unique_ptr<Renderable>> game_objects_;
+   std::vector<std::unique_ptr<rpd::Actor>> game_objects_;
 };
 
 } // namespace engine

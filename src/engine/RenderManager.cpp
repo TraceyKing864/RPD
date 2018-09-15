@@ -38,7 +38,6 @@ RenderManager& RenderManager::GetInstance() {
    return singleton;
 }
 
-// "../assets/archer.png"
 void RenderManager::LoadTextures(const std::vector<std::string>& file_names) {
    for(auto &file_name : file_names) {
       SDL_Texture* temp_texture;
@@ -54,7 +53,6 @@ void RenderManager::LoadTextures(const std::vector<std::string>& file_names) {
 	   	}
 	   	SDL_FreeSurface( loaded_surface );
       }
-
       loaded_textures_.insert(std::make_pair(file_name, temp_texture));
    }
 }

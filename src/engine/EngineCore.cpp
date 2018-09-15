@@ -34,7 +34,6 @@ void EngineCore::Run() {
 
    while(running) {
       // handle input
-      // TEMPORARY MANUAL HANDLING OF INPUT
       InputData input_data = input_manager.HandleInput();
 
       if(input_data.input_type == QUIT) {

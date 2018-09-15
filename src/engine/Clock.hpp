@@ -26,9 +26,9 @@ public:
 
 private:
    Clock();
+   ~Clock();
    Clock(const Clock&) = delete;
    Clock& operator=(const Clock&) = delete;
-   ~Clock();
    
    int GetFrames() { return frames_; };
    int GetSeconds() { return GetTicks()/1000; };
@@ -39,7 +39,6 @@ private:
    Uint32 curr_ticks_;
    Uint32 prev_ticks_;
    int frames_;
-
    bool paused_;
    bool started_;
 };
