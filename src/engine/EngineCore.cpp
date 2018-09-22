@@ -32,27 +32,29 @@ void EngineCore::Run() {
    game_clock.Start();
    render_manager.LoadTextures(std::vector<std::string>({"../assets/archer.png"}));
 
+   std::queue<InputData> input_data;
    while(running) {
       // handle input
-      InputData input_data = input_manager.HandleInput();
+      input_data = input_manager.HandleInput();
 
-      if(input_data.input_type == QUIT) {
+      if(!input_data.empty() && input_data.back().input_type == InputType::QUIT) {
          running = false;
       } else {
+         // pass the received input to the scene
          scene->HandleInput(input_data);
+
+         // update scene
+         scene->UpdateAll(game_clock.GetElapsedTicks());
+
+         // clear last frame from renderer
+         render_manager.ClearRenderer();
+
+         // render scene
+         scene->RenderAll();
+
+         // push scene to screen
+         render_manager.SceneToScreen();
       }
-
-      // update scene
-      scene->UpdateAll(game_clock.GetElapsedTicks());
-
-      // clear last frame from renderer
-      render_manager.ClearRenderer();
-
-      // render scene
-      scene->RenderAll();
-
-      // push scene to screen
-      render_manager.SceneToScreen();
 
       // TEMPORARY delay to ensure simple functionality is working
       //SDL_Delay(250);

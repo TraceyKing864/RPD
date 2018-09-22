@@ -13,28 +13,63 @@ InputManager& InputManager::GetInstance() {
    return singleton;
 }
 
-InputData InputManager::HandleInput() {
-   InputData event_data;
+std::queue<InputData> InputManager::HandleInput() {
+   std::queue<InputData> event_data;
 
    SDL_Event e;
    while(SDL_PollEvent(&e) != 0) {
+      InputData input;
       if(e.type == SDL_QUIT) {
-         event_data.input_type = QUIT;
+         input.input_type = QUIT;
+         event_data.push(input);
+         return event_data;
       }
       else if(e.type == SDL_KEYDOWN && e.key.repeat == 0) {
          switch(e.key.keysym.sym) {
-            case SDLK_UP: ; break;
-            case SDLK_DOWN: ; break;
-            case SDLK_LEFT: event_data.input_type = KEY_LEFT; break;
-            case SDLK_RIGHT: event_data.input_type = KEY_RIGHT; break;
+            case SDLK_UP:
+               input.input_type = MOVE_UP;
+               input.input_value = 1;
+               event_data.push(input);
+               break;
+            case SDLK_DOWN:
+               input.input_type = MOVE_DOWN;
+               input.input_value = 1;
+               event_data.push(input);
+               break;
+            case SDLK_LEFT:
+               input.input_type = MOVE_LEFT;
+               input.input_value = 1;
+               event_data.push(input);
+               break;
+            case SDLK_RIGHT:
+               input.input_type = MOVE_RIGHT;
+               input.input_value = 1;
+               event_data.push(input);
+               break;
          }
       }
       else if(e.type == SDL_KEYUP && e.key.repeat == 0) {
          switch(e.key.keysym.sym) {
-            case SDLK_UP: ; break;
-            case SDLK_DOWN: ; break;
-            case SDLK_LEFT: ; break;
-            case SDLK_RIGHT: ; break;
+            case SDLK_UP:
+               input.input_type = MOVE_UP;
+               input.input_value = -1;
+               event_data.push(input);
+               break;
+            case SDLK_DOWN:
+               input.input_type = MOVE_DOWN;
+               input.input_value = -1;
+               event_data.push(input);
+               break;
+            case SDLK_LEFT:
+               input.input_type = MOVE_LEFT;
+               input.input_value = -1;
+               event_data.push(input);
+               break;
+            case SDLK_RIGHT:
+               input.input_type = MOVE_RIGHT;
+               input.input_value = -1;
+               event_data.push(input);
+               break;
          }
       }
    }

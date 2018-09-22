@@ -12,8 +12,12 @@ Scene::~Scene() {
 
 }
 
-void Scene::HandleInput(InputData input_data) {
+void Scene::HandleInput(std::queue<InputData> input_data) {
    // lol events
+   while(!input_data.empty()) {
+      game_objects_[0]->ReceiveInput(input_data.front());
+      input_data.pop();
+   }
 }
 
 void Scene::UpdateAll(unsigned int ticks) {

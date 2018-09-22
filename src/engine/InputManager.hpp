@@ -2,6 +2,7 @@
 #define ENGINE_INPUTMANAGER_HPP
 
 #include <SDL2/SDL.h>
+#include <queue>
 #include "InputData.hpp"
 
 namespace engine {
@@ -11,7 +12,7 @@ public:
    static InputManager& GetInstance();
    // static void Destroy();
 
-   InputData HandleInput();
+   std::queue<InputData> HandleInput();
 
 private:
    InputManager();

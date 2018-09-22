@@ -3,6 +3,7 @@
 
 /*#include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>*/
+#include <queue>
 #include "../rpd/Actor.hpp"
 #include "InputData.hpp"
 #include "RenderManager.hpp"
@@ -15,7 +16,7 @@ public:
    Scene();
    ~Scene();
 
-   void HandleInput(InputData input_data);
+   void HandleInput(std::queue<InputData> input_data);
    void UpdateAll(unsigned int ticks);
    void RenderAll();
 

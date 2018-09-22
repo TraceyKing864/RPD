@@ -7,6 +7,7 @@
 #include "RenderManager.hpp"
 #include "Scene.hpp"
 #include <memory>
+#include <queue>
 #include <string>
 #include <vector>
 

@@ -16,9 +16,10 @@ public:
 
    void ReceiveInput(engine::InputData input);
    void Update(int ticks);
+   void Render();
 
 private:
-   std::unique_ptr<engine::Renderable> renderable_;
+   std::unique_ptr<engine::Renderable> renderable_ = nullptr;
    double pos_x_ = 0;
    double pos_y_ = 0;
    double pos_z_ = 0;
