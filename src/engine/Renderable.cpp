@@ -28,7 +28,7 @@ Renderable& Renderable::operator=(const Renderable& rhs) {
 void Renderable::Update(unsigned int ticks) {
    static int since_last_update = 0;
    since_last_update += ticks;
-   if(since_last_update > update_interval_){
+   if(since_last_update > update_interval_) {
       AdvanceFrame();
       since_last_update = 0;
    }
@@ -42,13 +42,15 @@ void Renderable::Render(int pos_x, int pos_y) {
 }
 
 void Renderable::SetAnimation(int animation) {
-   if(animation < animation_count_ && animation >= 0)
+   if(animation < animation_count_ && animation >= 0) {
       animation_ = animation;
+   }
 }
 
 void Renderable::SetScale(double scale) {
-   if(scale >= 0.0)
+   if(scale >= 0.0) {
       scale_ = scale;
+   }
 }
 
 /* void Renderable::UpdatePosition(int pos_x, int pos_y) {
@@ -58,8 +60,9 @@ void Renderable::SetScale(double scale) {
 
 void Renderable::AdvanceFrame() {
    frame_++;
-   if(frame_ == frame_count_)
+   if(frame_ == frame_count_) {
       frame_ = 0;
+   }
 }
 
 } // namespace engine
