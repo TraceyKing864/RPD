@@ -17,12 +17,27 @@ Renderable::~Renderable() {
 
 }
 
-Renderable::Renderable(const Renderable& other) {
+Renderable::Renderable(const Renderable& other) : 
+      width_(other.width_), height_(other.height_),
+      frame_(other.frame_), frame_count_(other.frame_count_), 
+      animation_(other.animation_), animation_count_(other.animation_count_),
+      scale_(other.scale_),
+      update_interval_(other.update_interval_),
+      texture_id_(other.texture_id_) 
+{
 
 }
 
 Renderable& Renderable::operator=(const Renderable& rhs) {
-
+   width_ = rhs.width_;
+   height_ = rhs.height_;
+   frame_ = rhs.frame_;
+   frame_count_ = rhs.frame_count_;
+   animation_ = rhs.animation_;
+   animation_count_ = rhs.animation_count_;
+   scale_ = rhs.scale_;
+   update_interval_ = rhs.update_interval_;
+   texture_id_ = rhs.texture_id_;
 }
 
 void Renderable::Update(unsigned int ticks) {
