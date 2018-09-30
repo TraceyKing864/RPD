@@ -6,7 +6,7 @@
 #include <memory>
 
 namespace rpd {
-   
+
 class Actor {
 public:
    Actor(double pos_x, double pos_y);

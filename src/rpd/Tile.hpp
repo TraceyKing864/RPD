@@ -14,12 +14,12 @@ public:
    ~Tile();
    Tile(const Tile& other);
    Tile& operator=(const Tile& rhs);
-   std::pair<double, double> calcCost(double actor_vel_x, double actor_vel_y);
+   std::pair<double, double> CalcCost(double actor_vel_x, double actor_vel_y);
    void ReceiveInput(engine::InputData input);
    void Update(int ticks);
    void Render();
-   inline bool collisionCheck(int actor_move_type) { return actor_move_type <= collision_; }
-   inline void setVariant(int variant) { tile_variant_ = variant; }
+   inline bool CollisionCheck(int actor_move_type) { return actor_move_type <= collision_; }
+   inline void SetVariant(int variant) { tile_variant_ = variant; }
 
 private:
    double pos_x_ = 0;

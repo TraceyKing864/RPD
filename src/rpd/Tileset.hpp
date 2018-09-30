@@ -31,11 +31,11 @@ public:
    ~Tileset();
    Tileset(const Tileset& other);
    Tileset& operator=(const Tileset& rhs);
-   engine::Renderable* getRenderable(int tile_id);
-   int getTileCollision(int tile_id);
-   double getTileCost(int tile_id);
-   void loadTileset(std::string tileset_name);
-   void unloadTileset();
+   engine::Renderable* GetRenderable(int tile_id);
+   int GetTileCollision(int tile_id);
+   double GetTileCost(int tile_id);
+   void LoadTileset(std::string tileset_name);
+   void UnloadTileset();
 private:
    std::string tileset_name_;
    std::map<int, std::unique_ptr<engine::Renderable> > tile_renderables_;
