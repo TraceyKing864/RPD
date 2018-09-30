@@ -5,7 +5,7 @@ namespace rpd {
 Tileset::Tileset(std::string tileset_name){
 
    // @TODO: add better way to do this, hardcoded for now
-   if(tileset_name == "town"){
+   if(tileset_name == "town") {
       tileset_name_ = tileset_name;
       //0 = path
       tile_renderables_[0] = std::make_unique<engine::Renderable> ("../assets/path.png", 0 , 0);

@@ -30,7 +30,9 @@ void EngineCore::Run() {
    std::unique_ptr<Scene> scene = std::make_unique<Scene>();
 
    game_clock.Start();
-   render_manager.LoadTextures(std::vector<std::string>({"../assets/archer.png"}));
+   render_manager.LoadTextures(std::vector<std::string>({"../assets/archer.png", 
+         "../assets/grass.png", "../assets/dirt.png", "../assets/water.png",
+         "../assets/hills.png", "../assets/path.png"}));
 
    std::queue<InputData> input_data;
    while(running) {
