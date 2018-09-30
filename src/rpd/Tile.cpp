@@ -3,9 +3,9 @@
 namespace rpd {
 
 Tile::Tile(int tile_id, int tile_adjacency, Tileset ts, int x, int y, int z) :
-      pos_x_(x), pos_y_(y), pos_z_(z), renderable_(ts.getRenderable(tile_id)),
-      tile_id_(tile_id), tile_variant_(4), collision_(ts.getTileCollision(tile_id)),
-      cost_(ts.getTileCost(tile_id)) {
+      pos_x_(x), pos_y_(y), pos_z_(z), renderable_(ts.GetRenderable(tile_id)),
+      tile_id_(tile_id), tile_variant_(4), collision_(ts.GetTileCollision(tile_id)),
+      cost_(ts.GetTileCost(tile_id)) {
 
 }
 
@@ -13,14 +13,14 @@ Tile::~Tile() {
 
 }
 
-Tile::Tile(const Tile& other) : 
-      pos_x_(other.pos_x_), pos_y_(other.pos_y_), pos_z_(other.pos_z_), 
-      renderable_(other.renderable_), 
-      tile_id_(other.tile_id_), 
-      tile_variant_(other.tile_variant_), 
+Tile::Tile(const Tile& other) :
+      pos_x_(other.pos_x_), pos_y_(other.pos_y_), pos_z_(other.pos_z_),
+      renderable_(other.renderable_),
+      tile_id_(other.tile_id_),
+      tile_variant_(other.tile_variant_),
       collision_(other.collision_),
       cost_(other.cost_) {
- 
+
 }
 
 Tile& Tile::operator=(const Tile& rhs) {

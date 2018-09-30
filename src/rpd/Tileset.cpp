@@ -75,9 +75,9 @@ Tileset& Tileset::operator=(const Tileset& rhs) {
 
 }
 
-/* engine::Renderable* Tileset::GetRenderable(int tile_id){
+engine::Renderable* Tileset::GetRenderable(int tile_id){
    return tile_renderables_[tile_id].get();
-} */
+}
 
 int Tileset::GetTileCollision(int tile_id) {
    return tile_collisions_[tile_id];
