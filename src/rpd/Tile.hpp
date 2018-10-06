@@ -1,10 +1,10 @@
 #ifndef RPD_TILE_HPP
 #define RPD_TILE_HPP
 
-#include "../engine/Renderable.hpp"
-#include "../engine/InputData.hpp"
-#include "Tileset.hpp"
 #include <utility>
+#include "Tileset.hpp"
+#include "../engine/InputData.hpp"
+#include "../engine/Renderable.hpp"
 
 namespace rpd {
 

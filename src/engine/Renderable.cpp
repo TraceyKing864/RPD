@@ -2,7 +2,7 @@
 
 namespace engine {
 
-Renderable::Renderable(std::string texture_id, int pos_x, int pos_y) : 
+Renderable::Renderable(std::string texture_id, int pos_x, int pos_y) :
       // pos_x_(pos_x), pos_y_(pos_y),
       width_(engine::RENDERABLE_DEFAULT::WIDTH), height_(engine::RENDERABLE_DEFAULT::HEIGHT),
       frame_(0), frame_count_(0), animation_(0), animation_count_(0),
@@ -17,13 +17,13 @@ Renderable::~Renderable() {
 
 }
 
-Renderable::Renderable(const Renderable& other) : 
+Renderable::Renderable(const Renderable& other) :
       width_(other.width_), height_(other.height_),
-      frame_(other.frame_), frame_count_(other.frame_count_), 
+      frame_(other.frame_), frame_count_(other.frame_count_),
       animation_(other.animation_), animation_count_(other.animation_count_),
       scale_(other.scale_),
       update_interval_(other.update_interval_),
-      texture_id_(other.texture_id_) 
+      texture_id_(other.texture_id_)
 {
 
 }

@@ -2,10 +2,11 @@
 
 namespace rpd {
 
-Actor::Actor(double pos_x, double pos_y) :
-      pos_x_(pos_x), pos_y_(pos_y), max_velocity_(0.1),
+Actor::Actor(double width, double height, double pos_x, double pos_y) :
+      width_(width), height_(height), pos_x_(pos_x), pos_y_(pos_y), max_velocity_(0.25),
       renderable_(std::make_unique<engine::Renderable>("../assets/archer.png", pos_x, pos_y)) {
    // lol idunno
+   renderable_->SetScale(2.5);
 }
 
 Actor::~Actor() {

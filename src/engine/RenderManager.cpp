@@ -14,7 +14,7 @@ RenderManager::RenderManager() {
    if (fullscreen)
       flags = flags | SDL_WINDOW_MAXIMIZED;
 
-   window_ = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, 
+   window_ = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED,
              SDL_WINDOWPOS_CENTERED, width, height, flags);
 
    if(window_ == nullptr) {
@@ -23,7 +23,7 @@ RenderManager::RenderManager() {
 
    renderer_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED);
 
-   if(renderer_ == nullptr) 
+   if(renderer_ == nullptr)
       throw std::string("Error in RenderManager(): NULL renderer.");
 }
 
@@ -71,8 +71,8 @@ void RenderManager::SceneToScreen() {
 }
 
 void RenderManager::Scale() {
-   const int viewport_width = 320;
-   const int viewport_height = 240;
+   const int viewport_width = 640;
+   const int viewport_height = 480;
    SDL_RenderSetLogicalSize(renderer_, viewport_width, viewport_height);
 }
 

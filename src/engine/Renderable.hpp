@@ -35,7 +35,7 @@ private:
    int frame_count_ = 0;
    int animation_ = 0;
    int animation_count_ = 0;
-   double scale_ = 0.0;
+   double scale_ = 1.0;
    int update_interval_ = 0.0;
    std::string texture_id_ = "";
 };

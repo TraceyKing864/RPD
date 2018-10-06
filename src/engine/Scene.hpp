@@ -1,13 +1,13 @@
 #ifndef ENGINE_SCENE_HPP
 #define ENGINE_SCENE_HPP
 
-/*#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>*/
-#include <queue>
-#include "../rpd/Actor.hpp"
 #include "InputData.hpp"
-#include "RenderManager.hpp"
 #include "Renderable.hpp"
+#include "RenderManager.hpp"
+#include "../physics/PhysicsCore.hpp"
+#include "../rpd/Actor.hpp"
+#include "../rpd/Stage.hpp"
+#include <queue>
 
 namespace engine {
 
@@ -21,7 +21,10 @@ public:
    void RenderAll();
 
 private:
-   std::vector<std::unique_ptr<rpd::Actor>> game_objects_;
+   physics::PhysicsCore& physics_engine_; // = physics::PhysicsCore::GetInstance();
+
+   std::shared_ptr<std::vector<std::unique_ptr<rpd::Actor>>> actors_;
+   std::shared_ptr<rpd::Stage> stage_;
 };
 
 } // namespace engine

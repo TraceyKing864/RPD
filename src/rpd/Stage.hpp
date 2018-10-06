@@ -1,8 +1,8 @@
 #ifndef RPD_STAGE_HPP
 #define RPD_STAGE_HPP
 
-#include "../engine/Renderable.hpp"
 #include "../engine/InputData.hpp"
+#include "../engine/Renderable.hpp"
 #include <memory>
 #include <vector>
 
@@ -10,8 +10,8 @@ namespace rpd {
 
 class Stage {
 public:
-   Stage(double width, double height);
-   ~Stage();
+   Stage(int width, int height) : width_(width), height_(height) { ; }
+   ~Stage() = default;
    Stage(const Stage& other);
    Stage& operator=(const Stage& rhs);
 
@@ -19,10 +19,13 @@ public:
    void Update(int ticks);
    void Render();
 
+   inline int GetWidth() { return width_; }
+   inline int GetHeight() { return height_; }
+
 private:
-   std::vector<std::vector<double>> tiles;
-   double width_ = 0;
-   double height_ = 0;
+   std::unique_ptr<std::vector<std::vector<int>>> tiles;
+   int width_ = 0;
+   int height_ = 0;
 };
 
 } // namespace rpd

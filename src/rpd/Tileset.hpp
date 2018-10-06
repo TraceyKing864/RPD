@@ -10,19 +10,19 @@
 namespace rpd {
 
 enum MOVE_TYPE {
-   GHOST = 1,
-   FLYING = 2,
-   AQUATIC = 3,
-   WALKING = 4
+   WALKING,
+   FLYING,
+   AQUATIC,
+   GHOST
 };
 
 enum COLLISION {
-   IMPASSABLE = 0,   //nothing can pass through this
-   WALL = 1,         //if you can pass through walls
-   MOUNTAINS = 2,    //if you can pass over mountains
-   WATER = 3,        //if you can pass through water
-   STANDARD = 4,     //just your regular ol ground
-   PASSABLE = 7      //always passable
+   STANDARD,    // just your regular ol ground
+   PASSABLE,    // always passable
+   WATER,       // if you can pass through water
+   WALL,        // if you can pass through walls
+   MOUNTAINS,   // if you can pass over mountains
+   IMPASSABLE   // nothing can pass through this
 };
 
 class Tileset {
@@ -46,4 +46,4 @@ private:
 
 } // namespace rpd
 
-#endif // RPD_TILE_HPP
+#endif // RPD_TILESET_HPP
